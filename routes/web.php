@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,7 @@ Route::get('/blog', function () {
         "title" => "Posts"
     ]);
 });
+
+
+
+Route::get('/login' , [Logincontroller::class, 'index'])->name('login');

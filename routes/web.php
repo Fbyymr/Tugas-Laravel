@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,5 @@ Route::get('/blog', function () {
 
 
 Route::get('/login' , [Logincontroller::class, 'index'])->name('login');
+
+Route::get('/register', [RegisterController::class, 'index']);

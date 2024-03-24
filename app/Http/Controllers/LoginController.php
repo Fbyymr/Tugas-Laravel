@@ -13,4 +13,18 @@ class LoginController extends Controller
             'active' => 'login'
         ]);
     }
+    public function authenticating(Request $request)
+    {
+        $credentials = $request->validate([
+            'username' => ['required'],
+            'password' => ['required'],
+        ]);
+
+        if (auth()->attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->intended('/home');
+        } else {
+            return back()->withErrors(['username' => 'Username or password is incorrect']);
+        }
+    }
 }

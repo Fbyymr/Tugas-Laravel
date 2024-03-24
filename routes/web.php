@@ -21,6 +21,12 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/home', function () {
+    return view('home', [
+        "title" => "Home"
+    ]);
+});
+
 Route::get('/about', function () {
     return view('about', [
         "title" => "About",
@@ -39,5 +45,7 @@ Route::get('/blog', function () {
 
 
 Route::get('/login' , [Logincontroller::class, 'index'])->name('login');
+Route::post('/login', [RegisterController::class, 'authenticating'])->name('login');
 
 Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
